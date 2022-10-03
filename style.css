@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Montserrat&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+body{
+  /* font-family: 'Kanit', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar{
+  height: 100px;
+}
+.navbar-brand{
+  font-weight: bold;
+}
+.login {
+  width: 50%;
+  margin-top: 100px;
+}
+.profile {
+  width: 70%;
+  margin-top: 100px;
+}
+.errorMessage {
+  color: red;
+}
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+  font-size: 12px;
+  background: #80cbee;
+  color: rgb(68, 66, 66);
+  padding: 1px 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+.cart{
+  font-size: 1.2rem;
+}
