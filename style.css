@@ -46,3 +46,9 @@ body{
 .cart{
   font-size: 1.2rem;
 }
+.img-thumbnail{
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+
+}
