@@ -107,7 +107,8 @@ $result2 = $con->query($sql2);
                     <td><a class="btn btn-primary" href="editproduct.php?productid=<?php echo $result['ProductID']; ?>"
                             role="button">Update</a></td>
                     <td><a class="btn btn-danger" href="deleteProduct.php?productid=<?php echo $result['ProductID']; ?>"
-                            role="button">Delete</a></td>
+                            role="button"
+                            onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                 </tr>
                 <?php
                     }
