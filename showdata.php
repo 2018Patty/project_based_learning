@@ -68,7 +68,7 @@ $count_row = mysqli_num_rows($rs);
                     <td><?php echo $result['fullname']; ?></td>
                     <td><?php echo $result['detail']; ?></td>
                     <td>
-                        <img src="images/<?php echo $result['picture']; ?>" class="img-thumbnail" alt="...">
+                        <img src="images/<?php echo $result['picture']; ?>" class="img-thumbnail2" alt="...">
                     </td>
                     <td><a class="btn btn-primary" href="#" role="button">Update</a></td>
                     <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>

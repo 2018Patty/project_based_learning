@@ -24,7 +24,7 @@
                     <a class="nav-link" href="#">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Show Data</a>
+                    <a class="nav-link" href="showdata.php">Show Data</a>
                 </li>
                 <li class="nav-item">
                     <?php
