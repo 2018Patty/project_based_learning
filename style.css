@@ -16,6 +16,10 @@ body{
   width: 50%;
   margin-top: 100px;
 }
+.formData {
+  width: 60%;
+  margin-top: 100px;
+}
 .profile {
   width: 70%;
   margin-top: 100px;
@@ -51,4 +55,14 @@ body{
   height: 100px;
   object-fit: contain;
 
+}
+.currentpage{
+  color:red;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.subtitle{
+  font-size: 0.5em;
+  color:grey;
+  letter-spacing: 1.2px;
 }

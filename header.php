@@ -5,7 +5,12 @@
     <div class="container">
 
         <!-- ตำแหน่งแสดง ตรา logo หรือชื่อเว็บไซต์  -->
-        <a class="navbar-brand" href="#">Project Based Learning</a>
+        <a class="navbar-brand" href="#">
+            <div class="d-flex flex-column">
+                <div class="titlepage">Project Based Learning</div>
+                <div class="subtitle">-- 934-303 Web Programming --</div>
+            </div>
+        </a>
 
         <!-- ปุ่มแฮมเบอร์เกอร์เมนู -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

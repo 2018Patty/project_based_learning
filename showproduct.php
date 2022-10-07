@@ -7,7 +7,7 @@ include 'connectDB.php';
 
 
 //3. Generate SQL Statement
-$sql = "select * from products";
+$sql = "select * from products order by productID";
 
 // echo $sql;
 
@@ -77,16 +77,21 @@ $result2 = $con->query($sql2);
         if ($count_row > 0) {
 
         ?>
+        <div class="row mb-2">
+            <div class="col-md-3">
+                <a class=" btn btn-success" href="productForm.php" role="button">Add Product</a>
+            </div>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">รหัสสินค้า</th>
-                    <th scope="col">ชื่อสินค้า</th>
-                    <th scope="col">ราคาต่อหน่วย</th>
-                    <th scope="col">จำนวนคงเหลือ</th>
+                    <th scope="col" class="text-center">รหัสสินค้า</th>
+                    <th scope="col" class="text-start">ชื่อสินค้า</th>
+                    <th scope="col" class="text-end">ราคาต่อหน่วย</th>
+                    <th scope="col" class="text-end">จำนวนคงเหลือ</th>
 
-                    <th scope="col">แก้ไข</th>
-                    <th scope="col">ลบ</th>
+                    <th scope="col" class="text-center">แก้ไข</th>
+                    <th scope="col" class="text-center">ลบ</th>
                 </tr>
             </thead>
             <tbody>
@@ -96,18 +101,20 @@ $result2 = $con->query($sql2);
                         // print_r($result['user_id']);
                     ?>
                 <tr>
-                    <td><?php echo $result['ProductID']; ?></td>
-                    <td><?php echo $result['ProductName']; ?></td>
-                    <td><?php echo $result['UnitPrice']; ?></td>
-                    <td><?php echo $result['UnitsInStock']; ?></td>
+                    <td class="text-center"><?php echo $result['ProductID']; ?></td>
+                    <td class="text-start"><?php echo $result['ProductName']; ?></td>
+                    <td class="text-end"><?php echo $result['UnitPrice']; ?></td>
+                    <td class="text-end"><?php echo $result['UnitsInStock']; ?></td>
                     <!-- <td>
-                        <img src="images/<?php //echo $result['picture']; 
+                        <img src=" images/<?php //echo $result['picture']; 
                                             ?>" class="img-thumbnail2" alt="...">
                     </td> -->
-                    <td><a class="btn btn-primary" href="editproduct.php?productid=<?php echo $result['ProductID']; ?>"
-                            role="button">Update</a></td>
-                    <td><a class="btn btn-danger" href="deleteProduct.php?productid=<?php echo $result['ProductID']; ?>"
-                            role="button"
+                    <td class="text-center"><a class=" btn btn-primary"
+                            href="editproduct.php?productid=<?php echo $result['ProductID']; ?>"
+                            role="button">Update</a>
+                    </td>
+                    <td class="text-center"><a class="btn btn-danger"
+                            href="deleteProduct.php?productid=<?php echo $result['ProductID']; ?>" role="button"
                             onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
                 </tr>
                 <?php
@@ -121,6 +128,7 @@ $result2 = $con->query($sql2);
         <nav aria-label="Page navigation example">
             <ul class=" pagination justify-content-end">
                 <?php
+
                 if ($n > 1) {
                     echo
                     "<li class='page-item'>
@@ -134,10 +142,20 @@ $result2 = $con->query($sql2);
                 }
                 $i = 1;
                 while ($i <= $numPages) {
-                    echo
-                    "<li class='page-item'>
-                            <a class='page-link' href='showproduct.php?n=" . $i . "'>" . $i . "</a>
+                    $currentpage = "";
+                    if ($i == $n) {
+
+                        echo
+                        "<li class='page-item'>
+                                <a class='page-link currentpage' href='showproduct.php?n=" . $i . "'>" . $i . "</a>
                         </li>";
+                    } else {
+                        echo
+                        "<li class='page-item'>
+                                <a class='page-link' href='showproduct.php?n=" . $i . "'>" . $i . "</a>
+                        </li>";
+                    }
+
                     $i++;
                 }
                 if ($n < $numPages) {
