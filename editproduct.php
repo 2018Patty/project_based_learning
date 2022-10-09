@@ -61,7 +61,7 @@ if (isset($_SESSION['userid'])) {
     <div class="container">
         <div class="login mx-auto p-4 border rounded">
             <h1 class="mb-3">Edit profile : <?php echo $result['username']; ?></h1>
-            <form method="post" action="updateProduct.php">
+            <form method="post" action="updateProduct.php" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label for="fullname" class="form-label">Product ID</label>
@@ -86,6 +86,10 @@ if (isset($_SESSION['userid'])) {
                     <input type="text" class="form-control" id="unitInstock" name="unitInstock"
                         value="<?php echo $result['UnitsInStock']; ?>">
 
+                </div>
+                <div class="mb-3">
+                    <label for="fileUpload" class="form-label">Upload Product Picture</label>
+                    <input class="form-control" type="file" id="formFile" name="picfile">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>

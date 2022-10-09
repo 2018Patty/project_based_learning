@@ -48,6 +48,10 @@ if (isset($_GET['error'])) {
                 echo $error_message;
                 ?>
             </p>
+            <p class="errorMessage mt-2">
+                การทำงานทุกหน้า ต้องผ่านการ Login <br>
+                ทดสอบด้วย username: lisa password: 123
+            </p>
         </div>
     </div>
 

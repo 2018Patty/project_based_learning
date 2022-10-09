@@ -59,7 +59,7 @@ if (isset($_SESSION['userid'])) {
     <div class="container">
         <div class="formData mx-auto p-4 border rounded">
             <h1 class="mb-3">Product Form</h1>
-            <form method="post" action="addProduct.php">
+            <form method="post" action="addProduct.php" enctype="multipart/form-data">
 
                 <!-- In-line form-control -->
                 <!-- <div class="mb-3 row">
@@ -83,6 +83,10 @@ if (isset($_SESSION['userid'])) {
                 </div>
 
 
+                <div class="mb-3">
+                    <label for="fileUpload" class="form-label">Upload Product Picture</label>
+                    <input class="form-control" type="file" id="formFile" name="picfile">
+                </div>
 
                 <?php
                 if ($count_row > 1) {
@@ -99,6 +103,8 @@ if (isset($_SESSION['userid'])) {
                     echo "</div>";
                 }
                 ?>
+
+
 
 
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -5,7 +5,8 @@ session_start();
 include 'connectDB.php';
 
 
-
+// $_SESSION['userid'] = '1';
+if (isset($_SESSION['userid'])) {
 //3. Generate SQL Statement
 $sql = "select * from products order by productID";
 
@@ -49,7 +50,7 @@ $start = ($n - 1) * $itemsPerPage;
     หมายความว่า ให้แสดงข้อมูลสินค้า ลำดับที่ 13 โดยแสดง 3 records
     */
 
-$sql2 = "select * from products p, categories c where p.CategoryID = c.CategoryID limit {$start},  {$itemsPerPage}";
+$sql2 = "select * from products p, categories c where p.CategoryID = c.CategoryID order by ProductID limit {$start},  {$itemsPerPage}";
 // echo $sql2;
 $result2 = $con->query($sql2);
 //echo $count_row;
@@ -89,7 +90,7 @@ $result2 = $con->query($sql2);
                     <th scope="col" class="text-start">ชื่อสินค้า</th>
                     <th scope="col" class="text-end">ราคาต่อหน่วย</th>
                     <th scope="col" class="text-end">จำนวนคงเหลือ</th>
-
+                    <th scope="col" class="text-end">รูปสินค้า</th>
                     <th scope="col" class="text-center">แก้ไข</th>
                     <th scope="col" class="text-center">ลบ</th>
                 </tr>
@@ -103,12 +104,19 @@ $result2 = $con->query($sql2);
                 <tr>
                     <td class="text-center"><?php echo $result['ProductID']; ?></td>
                     <td class="text-start"><?php echo $result['ProductName']; ?></td>
-                    <td class="text-end"><?php echo $result['UnitPrice']; ?></td>
+                    <td class="text-end">
+                        <?php echo number_format($result['UnitPrice'], 2); ?>
+                    </td>
                     <td class="text-end"><?php echo $result['UnitsInStock']; ?></td>
-                    <!-- <td>
-                        <img src=" images/<?php //echo $result['picture']; 
-                                            ?>" class="img-thumbnail2" alt="...">
-                    </td> -->
+                    <td>
+                        <?php
+                                if ($result['productPic'] != "") {
+
+                                    echo "<img src='images/products/{$result['productPic']}' class='img-thumbnail2'
+                        >";
+                                }
+                                ?>
+                    </td>
                     <td class="text-center"><a class=" btn btn-primary"
                             href="editproduct.php?productid=<?php echo $result['ProductID']; ?>"
                             role="button">Update</a>
@@ -184,3 +192,8 @@ $result2 = $con->query($sql2);
 </body>
 
 </html>
+<?php
+}else{
+    header("Location:login.php");
+}
+?>

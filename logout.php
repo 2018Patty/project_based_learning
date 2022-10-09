@@ -1,11 +1,11 @@
 <?php
     session_start();
-    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['userid'])){
         
 
         // unset($_SESSION['cart']);
         
-        unset($_SESSION['username']);
+        unset($_SESSION['userid']);
         header('Location: login.php');
     }
     

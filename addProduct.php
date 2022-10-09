@@ -4,33 +4,35 @@ session_start();
 include 'connectDB.php';
 
 //2.Get value from Login Form
-$productid = $_POST['productid'];
-echo "product_id" . $productid;
+
 
 $productName = $_POST['productName'];
-$price = $_POST['price'];
-$unitinStock = $_POST['unitInstock'];
+$price = $_POST['unitPrice'];
+$unitinStock = $_POST['unitInStock'];
+$catid = $_POST['categoryID'];
 $pic = $_FILES["picfile"]["name"];
+
+echo "filename: " . $pic;
 // $userid = $_POST['userid'];
 
 $_SESSION['userid'] = '1';
 if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
-    //echo "detail : " . $detail  . "<br>";
-    // echo "password : " . $password . "<br>";
 
-    // $sql = "select * from users where username = '". $username."' and password = '". $password ."';
 
-    //3. Generate SQL Statement
-    // $sql = "update users set fullname ='{$fullname}', detail='{$detail}' where user_id = {$userid}";
-
-    $sql = "update products set productName='{$productName}', unitPrice={$price}, unitsInStock={$unitinStock} , productPic= '{$pic}' where productID = {$productid}";
+    $sql = "insert into products(productName,unitPrice,unitsInStock,categoryID,productPic) values ('{$productName}',{$price},{$unitinStock},{$catid},'{$pic}')";
 
     echo $sql;
 
     //4.Send SQL statement to MySQL
     if ($con->query($sql)) {
         // header("Location:profile.php?userid={$userid}");
+        //header("Location:showproduct.php");
+
+
+        //5. Get result from MySQL
+        // print_r($rs);
+
         //upload file
         // echo $_FILES["picfile"]["name"];
         $target_dir = "images/products/";
@@ -81,13 +83,11 @@ if (isset($_SESSION['userid'])) {
         } else {
             if (move_uploaded_file($_FILES["picfile"]["tmp_name"], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES["picfile"]["name"])) . " has been uploaded.";
-                header("Location:showproduct.php");
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
         }
-    }
 
-    //5. Get result from MySQL
-    // print_r($rs);
+        header('Location:showproduct.php');
+    }
 }

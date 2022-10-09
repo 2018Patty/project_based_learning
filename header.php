@@ -26,16 +26,34 @@
                     <a class="nav-link active" href="login.php">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="register.php">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="showdata.php">Show Data</a>
+                    <a class="nav-link" href="showproduct.php">Show Data</a>
                 </li>
+
+                <!-- if login sucessfully then show profile icon -->
+                <?php
+                    if (isset($_SESSION['userid'])) {
+                        
+                        echo
+                        "<li class='nav-item dropdown'>
+                            <a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false' href='#'><i class='bi bi-person-circle'></i></a>
+                        
+                            <ul class='dropdown-menu'>
+                                <li><a class='dropdown-item' href='profile.php'>Profile</a></li>
+                                <li><a class='dropdown-item' href='logout.php'>logout</a></li>
+                            
+                            </ul>
+                        </li>";
+
+                    }
+
+                ?>
+                <!-- if user hasn't login yet then show login menu -->
                 <li class="nav-item">
                     <?php
-                    if (isset($_SESSION['username'])) {
-                        echo "<a class='nav-link' href='logout.php'>logout</a>";
-                    } else {
+                    if (!isset($_SESSION['userid'])) {
                         echo "<a class='nav-link' href='login.php'>login</a>";
                     }
 
@@ -46,11 +64,11 @@
                         <i class="bi bi-cart2 cart"></i>
 
                         <?php
-                        
+
                         $totalItem = 0;
                         echo "
                         <span class='badge badge-warning' id='lblCartCount'>" . $totalItem  . "</span>";
-                        
+
                         // if (isset($_SESSION['cart'])) {
                         // $totalItem = array_sum($_SESSION['cart']);
                         // //echo "total: ". $totalItem;
@@ -59,7 +77,7 @@
                         // }
 
 
-                    ?>
+                        ?>
                     </a>
                 </li>
 

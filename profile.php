@@ -40,7 +40,7 @@ if (isset($_SESSION['userid'])) {
         //$result['username']
         //$result['password']
         //$result['fullname']
-        //$result['detail']
+        //$result['address']
         //$result['picture']
 
     }
@@ -64,13 +64,13 @@ if (isset($_SESSION['userid'])) {
         <div class="profile mx-auto p-4 border rounded">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="images/<?php echo $result['picture']; ?>" class="img-thumbnail" alt="...">
+                    <img src="images/users/<?php echo $result['picture']; ?>" class="img-thumbnail" alt="...">
                 </div>
                 <div class="col-md-8">
                     <h1>Welcome : <?php echo $result['username']; ?></h1>
                     <p>Name: <?php echo $result['fullname']; ?></p>
 
-                    <p><?php echo $result['detail']; ?></p>
+                    <p><?php echo $result['address']; ?></p>
 
                     <!-- <a class="btn btn-primary" href="edituser.php?userid= <?php //echo $result['user_id']; 
                                                                                     ?>" role="button">Edit Profile</a> -->

@@ -50,7 +50,7 @@ $count_row = mysqli_num_rows($rs);
                     <th scope="col">รหัสลูกค้า</th>
                     <th scope="col">Username</th>
                     <th scope="col">ชื่อ-นามสกุล</th>
-                    <th scope="col">รายละเอียด</th>
+                    <th scope="col">ที่อยู่</th>
                     <th scope="col">รูปสมาชิก</th>
                     <th scope="col">แก้ไข</th>
                     <th scope="col">ลบ</th>
@@ -66,7 +66,7 @@ $count_row = mysqli_num_rows($rs);
                     <td><?php echo $result['user_id']; ?></td>
                     <td><?php echo $result['username']; ?></td>
                     <td><?php echo $result['fullname']; ?></td>
-                    <td><?php echo $result['detail']; ?></td>
+                    <td><?php echo $result['address']; ?></td>
                     <td>
                         <img src="images/<?php echo $result['picture']; ?>" class="img-thumbnail2" alt="...">
                     </td>
